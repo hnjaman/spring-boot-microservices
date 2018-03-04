@@ -30,6 +30,10 @@ nbdist/
 *.class
 
 /target
+/bin
+bin/
+
+user_db.mv.db
 
 # Log file
 *.log
