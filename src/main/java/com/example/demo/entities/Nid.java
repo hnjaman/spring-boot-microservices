@@ -12,7 +12,7 @@ public class Nid {
     @NotBlank(message="Enter your last name")
     private String lname;
     @Id
-    private Long nid;
+    private String nid;
     @NotBlank(message="Enter your name")
     private String ppid;
     @NotBlank(message="Enter your name")
@@ -21,7 +21,7 @@ public class Nid {
     
     
     
-	public Nid(String fname, String lname, Long nid, String ppid, String birthdate) {
+	public Nid(String fname, String lname, String nid, String ppid, String birthdate) {
 		this.fname = fname;
 		this.lname = lname;
 		this.nid = nid;
@@ -59,12 +59,7 @@ public class Nid {
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
-	public Long getNid() {
-		return nid;
-	}
-	public void setNid(Long nid) {
-		this.nid = nid;
-	}
+
 	public String getPpid() {
 		return ppid;
 	}
@@ -77,6 +72,18 @@ public class Nid {
 	public void setBirthdate(String birthdate) {
 		this.birthdate = birthdate;
 	}
+
+
+
+	public String getNid() {
+		return nid;
+	}
+
+
+	public void setNid(String nid) {
+		this.nid = nid;
+	}
     
+	
 	
 }

@@ -18,7 +18,7 @@ public class Passport {
 	    @Email(message="Enter a valid mail")
 	    private String email;
 	    @Id
-	    private Long nid;
+	    private String nid;
 	    @NotBlank(message="Enter your name")
 	    private String ppid;
 	    @NotBlank(message="Enter your name")
@@ -36,7 +36,12 @@ public class Passport {
 		public Passport() {
 			
 		}
-		public Passport(String fname, String lname, String email, Long nid, String ppid, String birthdate) {
+	
+		
+		
+		
+		public Passport(String fname, String lname, String email, String nid, String ppid, String birthdate) {
+			super();
 			this.fname = fname;
 			this.lname = lname;
 			this.email = email;
@@ -44,6 +49,7 @@ public class Passport {
 			this.ppid = ppid;
 			this.birthdate = birthdate;
 		}
+		
 		
 		public String getFname() {
 			return fname;
@@ -63,12 +69,7 @@ public class Passport {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public Long getNid() {
-			return nid;
-		}
-		public void setNid(Long nid) {
-			this.nid = nid;
-		}
+	
 		public String getPpid() {
 			return ppid;
 		}
@@ -80,6 +81,12 @@ public class Passport {
 		}
 		public void setBirthdate(String birthdate) {
 			this.birthdate = birthdate;
+		}
+		public String getNid() {
+			return nid;
+		}
+		public void setNid(String nid) {
+			this.nid = nid;
 		}
 	    
 	    
