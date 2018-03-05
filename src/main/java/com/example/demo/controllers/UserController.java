@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import java.util.List;
 
 import com.example.demo.entities.Nid;
+import com.example.demo.entities.Passport;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.Inid;
 import com.example.demo.repositories.Ipassport;
@@ -33,10 +34,20 @@ public class UserController {
 	public List<Nid> getNids() {
 		return nid.findAll();
 	}
-	@GetMapping("/nids/{nid}")
-	public Nid getNid(@PathVariable String nid) {
-		return 
+	@GetMapping("/nids/{id}")
+	public Nid getNid(@PathVariable Long id) {
+		return nid.findOne(id);
 	}
+	
+	@GetMapping("/passports")
+	public List<Passport> getPassports(){
+		return passport.findAll();
+	}
+	@GetMapping("/passports/{id}")
+	public Passport getPassport(Long id) {
+		return passport.findOne(id);
+	}
+	
 	
 	@GetMapping("/users")
 	public List<User> getUsers() {
