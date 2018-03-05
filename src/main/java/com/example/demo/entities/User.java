@@ -11,9 +11,6 @@ public class User {
     private Long id;
     private String fname;
     private String lname;
-    private Long nid;
-    private String ppid;
-    private String birthdate;
     
 	public Long getId() {
 		return id;

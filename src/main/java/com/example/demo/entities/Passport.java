@@ -1,26 +1,45 @@
 package com.example.demo.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-public class Passport {
+@IdClass(Passport.class)
+public class Passport implements Serializable{
 
-	 @NotBlank(message="Enter your first name")
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+		@Id
+		@GeneratedValue
+	    private Long id;
+		
+		@NotBlank(message="Enter your first name")
 	    private String fname;
+		
 	    @NotBlank(message="Enter your last name")
 	    private String lname;
+	    
 	    @NotBlank(message="Enter your email")
 	    @Id
 	    @Email(message="Enter a valid mail")
 	    private String email;
+	    
 	    @Id
 	    private String nid;
+	    
 	    @NotBlank(message="Enter your name")
 	    private String ppid;
+	    
 	    @NotBlank(message="Enter your name")
 	    private String birthdate;
 	    
@@ -28,11 +47,17 @@ public class Passport {
 	    
 	    
 	    
+		
+	    
 		@Override
 		public String toString() {
-			return "Passport [fname=" + fname + ", lname=" + lname + ", email=" + email + ", nid=" + nid + ", ppid="
-					+ ppid + ", birthdate=" + birthdate + "]";
+			return "Passport [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", nid=" + nid
+					+ ", ppid=" + ppid + ", birthdate=" + birthdate + "]";
 		}
+
+
+
+
 		public Passport() {
 			
 		}
@@ -41,7 +66,7 @@ public class Passport {
 		
 		
 		public Passport(String fname, String lname, String email, String nid, String ppid, String birthdate) {
-			super();
+			
 			this.fname = fname;
 			this.lname = lname;
 			this.email = email;
@@ -88,9 +113,12 @@ public class Passport {
 		public void setNid(String nid) {
 			this.nid = nid;
 		}
-	    
-	    
-	    
-	    
+		public Long getId() {
+			return id;
+		}
+		public void setId(Long id) {
+			this.id = id;
+		}
+	       
 	
 }

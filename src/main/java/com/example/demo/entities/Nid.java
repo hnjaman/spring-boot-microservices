@@ -1,20 +1,38 @@
 package com.example.demo.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 import org.hibernate.validator.constraints.NotBlank;
 @Entity
-public class Nid {
+@IdClass(Nid.class)
+public class Nid implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+    private Long id;
+	
     @NotBlank(message="Enter your first name")
     private String fname;
+    
     @NotBlank(message="Enter your last name")
     private String lname;
+    
     @Id
     private String nid;
+    
     @NotBlank(message="Enter your name")
     private String ppid;
+    
     @NotBlank(message="Enter your name")
     private String birthdate;
     
@@ -36,13 +54,24 @@ public class Nid {
 	}
 
 	
-	
 
 
 	@Override
 	public String toString() {
-		return "Nid [fname=" + fname + ", lname=" + lname + ", nid=" + nid + ", ppid=" + ppid + ", birthdate="
-				+ birthdate + "]";
+		return "Nid [id=" + id + ", fname=" + fname + ", lname=" + lname + ", nid=" + nid + ", ppid=" + ppid
+				+ ", birthdate=" + birthdate + "]";
+	}
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
