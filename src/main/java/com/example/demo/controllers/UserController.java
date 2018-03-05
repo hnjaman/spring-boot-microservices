@@ -2,9 +2,11 @@ package com.example.demo.controllers;
 
 import java.util.List;
 
-
+import com.example.demo.entities.Nid;
+import com.example.demo.entities.Passport;
 import com.example.demo.entities.User;
-
+import com.example.demo.repositories.Inid;
+import com.example.demo.repositories.Ipassport;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,6 +26,30 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private Inid nid;
+	
+	@Autowired
+	private Ipassport passport;
+	
+	@GetMapping("/nids")
+	public List<Nid> getNids(){
+		return  nid.findAll();
+	}
+	@GetMapping("/nids/{id}")
+	public Nid getNid(@PathVariable Long id) {
+		return nid.findOne(id);
+	}
+	
+	@GetMapping("/passports")
+	public List<Passport> getPasswords(){
+		return passport.findAll();
+	}
+	
+	@GetMapping("/passports/{id}")
+	public Passport getPassport(@PathVariable Long id) {
+		return passport.findOne(id);
+	}
 	
 	@GetMapping("/users")
 	public List<User> getUsers() {

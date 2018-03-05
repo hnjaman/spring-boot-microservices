@@ -10,7 +10,7 @@ import javax.persistence.IdClass;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
-//@Entity
+@Entity
 //@IdClass(Passport.class)
 public class Passport implements Serializable{
 
@@ -34,7 +34,7 @@ public class Passport implements Serializable{
 	    @Email(message="Enter a valid mail")
 	    private String email;
 	    
-	   
+	    
 	    private String nid;
 	    
 	    @NotBlank(message="Enter your name")

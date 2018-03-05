@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 import org.hibernate.validator.constraints.NotBlank;
-//@Entity
+@Entity
 //@IdClass(Nid.class)
 public class Nid implements Serializable{
 	
