@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entities.Nid;
 
-public interface Inid extends JpaRepository<Nid, String>{
+public interface Inid extends JpaRepository<Nid, Long>{
 
 }
