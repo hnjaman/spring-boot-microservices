@@ -2,7 +2,10 @@ package com.example.demo.controllers;
 
 import java.util.List;
 
+import com.example.demo.entities.Nid;
 import com.example.demo.entities.User;
+import com.example.demo.repositories.Inid;
+import com.example.demo.repositories.Ipassport;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,7 +24,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private Inid nid;
+	@Autowired
+	private Ipassport passport;
 
+	@GetMapping("/nids")
+	public List<Nid> getNids() {
+		return nid.findAll();
+	}
+	@GetMapping("/nids/{nid}")
+	public Nid getNid(@PathVariable String nid) {
+		return 
+	}
+	
 	@GetMapping("/users")
 	public List<User> getUsers() {
 		return userRepository.findAll();
