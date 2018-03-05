@@ -34,6 +34,9 @@ nbdist/
 bin/
 
 user_db.mv.db
+*.db
+*.mv.db
+user_db.trace.db
 
 # Log file
 *.log
