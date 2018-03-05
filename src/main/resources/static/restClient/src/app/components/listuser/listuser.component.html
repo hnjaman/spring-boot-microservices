@@ -20,5 +20,51 @@
             </tr>
         </tbody>
     </table>
+<!--
+ <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>NID </th>
+            <th>Passport</th>
+            <th>Birthday</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let nid of nids">
+                <td>{{nid.id}}</td>
+                <td>{{nid.fname}}</td>
+                <td>{{nid.lname}}</td>
+                <td>{{nid.nid}}</td>
+                <td>{{nid.ppid}}</td>
+                <td>{{nid.birthdate}}</td>
+            </tr>
+        </tbody>
+    </table>
+-->
+   
+
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>NID </th>
+            <th>Passport</th>
+            <th>Birthday</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let passport of passports">
+                <td>{{passport.id}}</td>
+                <td>{{passport.fname}}</td>
+                <td>{{passport.lname}}</td>
+                <td>{{passport.email}}</td>
+                <td>{{passport.nid}}</td>
+                <td>{{passport.ppid}}</td>
+                <td>{{passport.birthdate}}</td>
+            </tr>
+        </tbody>
+    </table>
   
 </div>

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import{UserService}  from '../../shared-service/user.service';
 import{User}  from '../../user';
+import{Nid} from '../../nid';
+
 import{Router}  from '@angular/router';
+import { Passport } from '../../passport';
 
 @Component({
   selector: 'app-listuser',
@@ -10,12 +13,28 @@ import{Router}  from '@angular/router';
 })
 export class ListuserComponent implements OnInit {
   private users:User[];
+  private nids:Nid[];
+  private passports:Passport[];
   constructor(private _userService:UserService, private _router:Router) { }
 
   ngOnInit() {
       this._userService.getUsers().subscribe((users)=>{
         console.log(users);
         this.users=users;
+      },(error)=>{
+        console.log(error);
+      })
+
+      this._userService.getNids().subscribe((nids)=>{
+        console.log(nids);
+        this.nids=nids;
+      },(error)=>{
+        console.log(error);
+      })
+
+      this._userService.getPassports().subscribe((passports)=>{
+        console.log(passports);
+        this.nids=passports;
       },(error)=>{
         console.log(error);
       })
