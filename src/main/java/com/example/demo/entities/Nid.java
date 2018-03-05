@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 import org.hibernate.validator.constraints.NotBlank;
-@Entity
-@IdClass(Nid.class)
+//@Entity
+//@IdClass(Nid.class)
 public class Nid implements Serializable{
 	
 	/**
@@ -27,7 +27,7 @@ public class Nid implements Serializable{
     @NotBlank(message="Enter your last name")
     private String lname;
     
-    @Id
+    
     private String nid;
     
     @NotBlank(message="Enter your name")
