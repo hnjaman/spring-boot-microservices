@@ -28,8 +28,6 @@ public class CrudbootangApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		userRepository.save(new User("ABC", "XYZ"));
-		//userRepository.save(new User("two", "one"));
-		//userRepository.save(new User("three", "one"));
 		
 		passport.save(new Passport("dilip","kumar","dilip@gmail.com","123456789012345","asdfg123","20-12-1988"));
 		
