@@ -32,6 +32,12 @@ public class UserController {
 	@Autowired
 	private Ipassport passport;
 	
+	
+
+/*
+ * 		Nid
+ * */
+	
 	@GetMapping("/nids")
 	public List<Nid> getNids(){
 		return  nid.findAll();
@@ -40,6 +46,28 @@ public class UserController {
 	public Nid getNid(@PathVariable Long id) {
 		return nid.findOne(id);
 	}
+	
+	@PostMapping("/nid")
+	public Nid createNid(@RequestBody Nid newnid) {
+		return nid.save(newnid);
+	}
+	
+	@DeleteMapping("/nids/{id}")
+	public boolean deleteNid(@PathVariable Long id) {
+		nid.delete(id);
+		return true;
+	}
+	
+	@PutMapping("/nid")
+	public Nid updateNid(@RequestBody Nid newnid) {
+		return nid.save(newnid);
+	}
+	
+	
+	
+/*
+ * 		Passport
+ * */
 	
 	@GetMapping("/passports")
 	public List<Passport> getPasswords(){
@@ -50,6 +78,28 @@ public class UserController {
 	public Passport getPassport(@PathVariable Long id) {
 		return passport.findOne(id);
 	}
+	
+	@PostMapping("/passport")
+	public Passport createPassport(@RequestBody Passport newpassport) {
+		return passport.save(newpassport);
+	}
+	
+	@DeleteMapping("/passports/{id}")
+	public boolean deletePassport(@PathVariable Long id) {
+		passport.delete(id);
+		return true;
+	}
+	
+	@PutMapping("/passport")
+	public Passport updatePassport(@RequestBody Passport newpassport) {
+		return passport.save(newpassport);
+	}
+	
+	
+
+/*
+ * 		User
+ * */
 	
 	@GetMapping("/users")
 	public List<User> getUsers() {
