@@ -40,6 +40,20 @@ export class ListuserComponent implements OnInit {
       })
   }
 
+/** Nid actions */
+deleteNid
+updateNid
+
+createNid(){
+  let nid = new Nid();
+  this._userService.setter(nid);
+  this._router.navigate(['/nid']);
+}
+
+
+
+/** User actions */
+
   deleteUser(user){
     this._userService.deleteUser(user.id).subscribe((data)=>{
         this.users.splice(this.users.indexOf(user),1);
