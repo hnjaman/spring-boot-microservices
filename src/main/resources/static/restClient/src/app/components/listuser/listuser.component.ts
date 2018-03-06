@@ -34,7 +34,7 @@ export class ListuserComponent implements OnInit {
 
       this._userService.getPassports().subscribe((passports)=>{
         console.log(passports);
-        this.nids=passports;
+        this.passports=passports;
       },(error)=>{
         console.log(error);
       })
