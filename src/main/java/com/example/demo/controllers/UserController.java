@@ -34,9 +34,9 @@ public class UserController {
 	
 	
 
-/*
- * 		Nid
- * */
+	/*
+	 * 		Nid
+	 * */
 	
 	@GetMapping("/nids")
 	public List<Nid> getNids(){
@@ -65,9 +65,9 @@ public class UserController {
 	
 	
 	
-/*
- * 		Passport
- * */
+	/*
+	 * 		Passport
+	 * */
 	
 	@GetMapping("/passports")
 	public List<Passport> getPasswords(){
@@ -97,9 +97,9 @@ public class UserController {
 	
 	
 
-/*
- * 		User
- * */
+	/*
+	 * 		User
+	 * */
 	
 	@GetMapping("/users")
 	public List<User> getUsers() {
