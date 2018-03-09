@@ -5,6 +5,7 @@ import{Nid} from '../../nid';
 
 import{Router}  from '@angular/router';
 import { Passport } from '../../passport';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-listuser',
@@ -41,19 +42,51 @@ export class ListuserComponent implements OnInit {
   }
 
 /** Nid actions */
-deleteNid
-updateNid
 
-createNid(){
-  let nid = new Nid();
-  this._userService.setter(nid);
+
+deleteNid(nid){
+  this._userService.deleteNid(nid.id).subscribe((data)=>{
+    this.nids.splice(this.nids.indexOf(nid),1);
+  },(error)=>{
+    console.log(error);
+  });
+}
+
+updateNid(nid){
+  this._userService.setterNid(nid);
   this._router.navigate(['/nid']);
 }
 
+createNid(){
+  let nid = new Nid();
+  this._userService.setterNid(nid);
+  this._router.navigate(['/nid']);
+}
+
+/********************* Passport actions */
+
+deletePassport(passport){
+  this._userService.deletePassport(passport.id).subscribe((data)=>{
+    this.passports.splice(this.passports.indexOf(passport),1);
+  },(error)=>{
+    console.log(error);
+  });
+}
+
+updatePassport(passport){
+  this._userService.setterPassport(passport);
+  this._router.navigate(['/passport']);
+}
+
+createPassport(){
+  let passport = new Passport();
+  this._userService.setterPassport(passport);
+  this._router.navigate(['/passport'])
+}
 
 
-/** User actions */
-
+/******************** User actions */
+/**
   deleteUser(user){
     this._userService.deleteUser(user.id).subscribe((data)=>{
         this.users.splice(this.users.indexOf(user),1);
@@ -72,5 +105,5 @@ createNid(){
     this._userService.setter(user);
      this._router.navigate(['/op']); 
   }
-
+ */
 }

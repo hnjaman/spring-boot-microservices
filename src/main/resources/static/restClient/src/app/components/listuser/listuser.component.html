@@ -1,4 +1,6 @@
 <div class="container">
+<!--
+
 
     <button class="btn btn-primary" (click)="newUser()">New User</button>
     
@@ -20,7 +22,7 @@
             </tr>
         </tbody>
     </table>
-
+-->
  <table class="table table-striped">
         <thead>
             <th>Id</th>
@@ -38,8 +40,11 @@
                 <td>{{nid.nid}}</td>
                 <td>{{nid.ppid}}</td>
                 <td>{{nid.birthdate}}</td>
+                <td><button class="btn btn-danger" (click)="deleteNid(nid)">Delete</button>
+                    <button class="btn btn-primary" (click)="updateNid(nid)">Edit</button></td>
             </tr>
         </tbody>
+        <button class="btn btn-primary" (click)="createNid()">New Nid</button>
     </table>
    
 
@@ -62,8 +67,11 @@
                 <td>{{passport.nid}}</td>
                 <td>{{passport.ppid}}</td>
                 <td>{{passport.birthdate}}</td>
+                <td><button class="btn btn-danger" (click)="deletePassport(passport)">Delete</button>
+                    <button class="btn btn-primary" (click)="updatePassport(passport)">Edit</button></td>
             </tr>
         </tbody>
+        <button class="btn btn-primary" (click)="createPassport()">New Passport</button>
     </table>
   
 </div>
