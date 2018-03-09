@@ -1,0 +1,38 @@
+<div class="container">
+
+  <form (ngSubmit)="processPassportForm()">
+      <div class="form group">
+          <input type="hidden" name="id" class="form-control" [(ngModel)]="passport.id">
+      </div>
+      <div class="form group">
+          <label for="fname">First Name</label>
+          <input type="text" name="fname" class="form-control" [(ngModel)]="passport.fname">
+      </div>
+      <div class="form group">
+          <label for="lname">Last Name</label>
+          <input type="text" name="lname" class="form-control" [(ngModel)]="passport.lname">
+      </div>
+
+      <div class="form group">
+        <label for="lname">Email</label>
+        <input type="text" name="email" class="form-control" [(ngModel)]="passport.email">
+      </div>
+
+      <div class="form group">
+        <label for="fname">Nid</label>
+        <input type="text" name="nid" class="form-control" [(ngModel)]="passport.nid">
+      </div>
+
+      <div class="form group">
+        <label for="lname">Passport</label>
+        <input type="text" name="ppid" class="form-control" [(ngModel)]="passport.ppid">
+      </div>
+
+      <div class="form group">
+        <label for="lname">Birthdate</label>
+        <input type="text" name="birthdate" class="form-control" [(ngModel)]="passport.birthdate">
+      </div>
+      
+      <input type="submit" value="save" class="btn btn-success">
+  </form>
+</div>
