@@ -19,6 +19,8 @@ export class UserService {
   private headers = new Headers({'Content-Type':'application/json'});
   private options = new RequestOptions({headers:this.headers});
   
+  private httpheader = {Headers: new this.httpheader({'Content-Type':'application/json'})};
+  
   private user = new User();
   private nid = new Nid();
   private passport = new Passport();
@@ -34,13 +36,13 @@ export class UserService {
       .catch(this.errorHandler);
   }
 
-  getNid(id:Number){
-    return this._http.get(this.baseUrl+'/nids/'+id,this.options).map((response:Response)=>response.json())
+  getNid(nid:string){
+    return this._http.get(this.baseUrl+'/nids/'+nid,this.options).map((response:Response)=>response.json())
       .catch(this.errorHandler);
   }
 
-  deleteNid(id:Number){
-    return this._http.delete(this.baseUrl+'/nids/'+id,this.options).map((response:Response)=>response.json())
+  deleteNid(nid:string){
+    return this._http.delete(this.baseUrl+'/nids/'+nid,this.options).map((response:Response)=>response.json())
   .catch(this.errorHandler);
   }
 
@@ -63,13 +65,13 @@ export class UserService {
       .catch(this.errorHandler);
   }
 
-  getPassport(id:Number){
-    return this._http.get(this.baseUrl+'/passports/'+id,this.options).map((response:Response)=>response.json())
+  getPassport(ppid:string){
+    return this._http.get(this.baseUrl+'/passports/'+ppid,this.options).map((response:Response)=>response.json())
       .catch(this.errorHandler);
   }
 
-  deletePassport(id:Number){
-    return this._http.delete(this.baseUrl+'/passports/'+id,this.options).map((response:Response)=>response.json())
+  deletePassport(ppid:string){
+    return this._http.delete(this.baseUrl+'/passports/'+ppid,this.options).map((response:Response)=>response.json())
   .catch(this.errorHandler);
   }
 
