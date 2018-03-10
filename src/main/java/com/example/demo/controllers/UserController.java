@@ -1,6 +1,10 @@
 package com.example.demo.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import com.example.demo.entities.Nid;
 import com.example.demo.entities.Passport;
@@ -8,7 +12,12 @@ import com.example.demo.entities.User;
 import com.example.demo.repositories.Inid;
 import com.example.demo.repositories.Ipassport;
 import com.example.demo.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,76 +32,109 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 @CrossOrigin(origins="http://localhost:4200", allowedHeaders="*")
 public class UserController {
+	
 	@Autowired
 	private UserRepository userRepository;
 	
 	@Autowired
-	private Inid nid;
+	private Inid inid;
 	
 	@Autowired
-	private Ipassport passport;
+	private Ipassport ipassport;
 	
 	
+	Map<String, String> errors;
 
 	/*
-	 * 		Nid
+	 ********************************* 		Nid
 	 * */
 	
 	@GetMapping("/nids")
 	public List<Nid> getNids(){
-		return  nid.findAll();
+		return  inid.findAll();
 	}
-	@GetMapping("/nids/{id}")
-	public Nid getNid(@PathVariable Long id) {
-		return nid.findOne(id);
+	@GetMapping("/nids/{nid}")
+	public Nid getNid(@PathVariable String nid) {
+		return inid.findOne(nid);
 	}
 	
 	@PostMapping("/nid")
-	public Nid createNid(@RequestBody Nid newnid) {
-		return nid.save(newnid);
+	public ResponseEntity<Object> createNid(@RequestBody @Valid Nid newnid, BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			errors=new HashMap<>();
+			for(FieldError error : bindingResult.getFieldErrors()) {
+				errors.put(error.getField(), error.getDefaultMessage());
+			}
+			return new ResponseEntity<>(errors,HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		Nid n = inid.findByNid(newnid.getNid());
+		if(n!=null) {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
+		
+		return new ResponseEntity<>(inid.save(newnid),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/nids/{id}")
-	public boolean deleteNid(@PathVariable Long id) {
-		nid.delete(id);
+	@DeleteMapping("/nids/{nid}")
+	public boolean deleteNid(@PathVariable String nid) {
+		inid.delete(nid);
 		return true;
 	}
 	
 	@PutMapping("/nid")
 	public Nid updateNid(@RequestBody Nid newnid) {
-		return nid.save(newnid);
+		return inid.save(newnid);
 	}
 	
 	
 	
 	/*
-	 * 		Passport
+	 ***************************		Passport
 	 * */
 	
 	@GetMapping("/passports")
 	public List<Passport> getPasswords(){
-		return passport.findAll();
+		return ipassport.findAll();
 	}
 	
-	@GetMapping("/passports/{id}")
-	public Passport getPassport(@PathVariable Long id) {
-		return passport.findOne(id);
+	@GetMapping("/passports/{ppid}")
+	public Passport getPassport(@PathVariable String ppid) {
+		return ipassport.findOne(ppid);
 	}
 	
 	@PostMapping("/passport")
-	public Passport createPassport(@RequestBody Passport newpassport) {
-		return passport.save(newpassport);
+	public ResponseEntity<Object> createPassport(@RequestBody @Valid Passport newpassport, BindingResult bindingResult) {
+		if(bindingResult.hasFieldErrors()) {
+			errors = new HashMap<>();
+			for(FieldError error : bindingResult.getFieldErrors()) {
+				errors.put(error.getField(), error.getDefaultMessage());
+			}
+			
+			return new ResponseEntity<>(errors, HttpStatus.NOT_ACCEPTABLE);
+		}
+		
+		Passport passppid = ipassport.findByPpid(newpassport.getPpid());
+		Passport passnid = ipassport.findByNid(newpassport.getNid());
+		
+		if(passnid != null || passppid != null) {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
+		
+		return new ResponseEntity<>(ipassport.save(newpassport),HttpStatus.OK);
+ 		
 	}
 	
-	@DeleteMapping("/passports/{id}")
-	public boolean deletePassport(@PathVariable Long id) {
-		passport.delete(id);
+	@DeleteMapping("/passports/{ppid}")
+	public boolean deletePassport(@PathVariable String ppid) {
+		ipassport.delete(ppid);
 		return true;
 	}
 	
 	@PutMapping("/passport")
 	public Passport updatePassport(@RequestBody Passport newpassport) {
-		return passport.save(newpassport);
+		return ipassport.save(newpassport);
 	}
 	
 	
