@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import{UserService}  from '../../shared-service/user.service';
 import{User}  from '../../user';
 import{Nid} from '../../nid';
@@ -12,10 +13,14 @@ import { error } from 'protractor';
   templateUrl: './listuser.component.html',
   styleUrls: ['./listuser.component.css']
 })
+
 export class ListuserComponent implements OnInit {
   private users:User[];
   private nids:Nid[];
   private passports:Passport[];
+
+
+
   constructor(private _userService:UserService, private _router:Router) { }
 
   ngOnInit() {
