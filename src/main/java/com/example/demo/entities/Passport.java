@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -19,40 +20,38 @@ public class Passport implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-		@Id
-		@GeneratedValue
-	    private Long id;
-		
+
 		@NotBlank(message="Enter your first name")
 	    private String fname;
 		
-	    @NotBlank(message="Enter your last name")
+	    //@NotBlank(message="Enter your last name")
 	    private String lname;
 	    
-	    @NotBlank(message="Enter your email")
-	   
+	    @NotBlank(message="Enter your email")	   
 	    @Email(message="Enter a valid mail")
+	   // @Id
 	    private String email;
 	    
-	    
+	   // @Id
+	    @Size(min=13,max=18,message="Enter a valid Nid Number")
+	    @NotBlank(message="Enter Nid Number")
 	    private String nid;
 	    
 	    @NotBlank(message="Enter your name")
+	    @Id
 	    private String ppid;
 	    
 	    @NotBlank(message="Enter your name")
 	    private String birthdate;
 	    
 	    
+
 	    
-	    
-	    
-		
-	    
+
 		@Override
 		public String toString() {
-			return "Passport [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", nid=" + nid
-					+ ", ppid=" + ppid + ", birthdate=" + birthdate + "]";
+			return "Passport [fname=" + fname + ", lname=" + lname + ", email=" + email + ", nid=" + nid + ", ppid="
+					+ ppid + ", birthdate=" + birthdate + "]";
 		}
 
 
@@ -112,12 +111,6 @@ public class Passport implements Serializable{
 		}
 		public void setNid(String nid) {
 			this.nid = nid;
-		}
-		public Long getId() {
-			return id;
-		}
-		public void setId(Long id) {
-			this.id = id;
 		}
 	       
 	

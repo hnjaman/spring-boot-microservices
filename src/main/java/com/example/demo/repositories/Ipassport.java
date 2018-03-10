@@ -4,6 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entities.Passport;
 
-public interface Ipassport extends JpaRepository<Passport, Long>{
+public interface Ipassport extends JpaRepository<Passport, String>{
+
+	Passport findByPpid(String ppid);
+
+	Passport findByNid(String nid);
 
 }

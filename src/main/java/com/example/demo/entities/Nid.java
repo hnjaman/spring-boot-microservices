@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 @Entity
@@ -17,20 +18,18 @@ public class Nid implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-    private Long id;
 	
     @NotBlank(message="Enter your first name")
     private String fname;
     
-    @NotBlank(message="Enter your last name")
+    //@NotBlank(message="Enter your last name")
     private String lname;
     
-    
+    @NotBlank(message="Enter NID Number")
+    @Id
+    @Size(min=13,max=18,message="Enter a valid NID Number")
     private String nid;
     
-    @NotBlank(message="Enter your name")
     private String ppid;
     
     @NotBlank(message="Enter your name")
@@ -58,22 +57,9 @@ public class Nid implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Nid [id=" + id + ", fname=" + fname + ", lname=" + lname + ", nid=" + nid + ", ppid=" + ppid
+		return "Nid [fname=" + fname + ", lname=" + lname + ", nid=" + nid + ", ppid=" + ppid
 				+ ", birthdate=" + birthdate + "]";
 	}
-
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 
 
 	public String getFname() {
