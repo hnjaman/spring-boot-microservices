@@ -19,7 +19,7 @@ export class UserService {
   private headers = new Headers({'Content-Type':'application/json'});
   private options = new RequestOptions({headers:this.headers});
   
-  private httpheader = {Headers: new this.httpheader({'Content-Type':'application/json'})};
+ /** private httpheader = {Headers: new this.httpheader({'Content-Type':'application/json'})}; */
   
   private user = new User();
   private nid = new Nid();
