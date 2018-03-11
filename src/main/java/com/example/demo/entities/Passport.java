@@ -37,11 +37,11 @@ public class Passport implements Serializable{
 	    @NotBlank(message="Enter Nid Number")
 	    private String nid;
 	    
-	    @NotBlank(message="Enter your name")
+	    @NotBlank(message="Enter your Passport Number")
 	    @Id
 	    private String ppid;
 	    
-	    @NotBlank(message="Enter your name")
+	    @NotBlank(message="Enter your Date of Birth")
 	    private String birthdate;
 	    
 	    

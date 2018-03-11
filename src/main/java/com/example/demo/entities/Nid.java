@@ -32,7 +32,7 @@ public class Nid implements Serializable{
     
     private String ppid;
     
-    @NotBlank(message="Enter your name")
+    @NotBlank(message="Enter your Date of Birth")
     private String birthdate;
     
     
