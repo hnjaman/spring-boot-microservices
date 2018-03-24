@@ -1,5 +1,5 @@
 <div class="container">
-
+    <!--
     <button class="btn btn-primary" (click)="newUser()">New User</button>
     
     <table class="table table-striped">
@@ -19,7 +19,8 @@
 
             </tr>
         </tbody>
-    </table>
+     </table> 
+    -->
 
  <table class="table table-striped">
         <thead>
@@ -31,8 +32,8 @@
             <th>Birthday</th>
         </thead>
         <tbody>
-            <tr *ngFor="let nid of nids">
-                <td>{{ $index + 1 }}</td>
+            <tr *ngFor="let nid of nids; let i = index">
+                <td>{{ i + 1 }}</td>
                 <td>{{nid.fname}}</td>
                 <td>{{nid.lname}}</td>
                 <td>{{nid.nid}}</td>
@@ -57,8 +58,9 @@
             <th>Birthday</th>
         </thead>
         <tbody>
-            <tr *ngFor="let passport of passports">
-                <td>{{ $index + 1 }}</td>
+            <tr *ngFor="let passport of passports; let i = index">
+            <!-- <tr ng-repeat="passport in passports;"> -->
+                <td>{{ i + 1 }}</td>
                 <td>{{passport.fname}}</td>
                 <td>{{passport.lname}}</td>
                 <td>{{passport.email}}</td>

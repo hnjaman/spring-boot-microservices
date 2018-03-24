@@ -18,6 +18,7 @@ export class ListuserComponent implements OnInit {
   private users:User[];
   private nids:Nid[];
   private passports:Passport[];
+  
 
 
 
@@ -50,7 +51,7 @@ export class ListuserComponent implements OnInit {
 
 
 deleteNid(nid){
-  this._userService.deleteNid(nid.id).subscribe((data)=>{
+  this._userService.deleteNid(nid.nid).subscribe((data)=>{
     this.nids.splice(this.nids.indexOf(nid),1);
   },(error)=>{
     console.log(error);

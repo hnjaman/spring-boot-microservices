@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./passportlist.component.css']
 })
 export class PassportlistComponent implements OnInit {
-private passports:Passport[];
+
+  
+  private passports:Passport[];
   constructor(private _userService:UserService, private _router:Router ) { }
 
   ngOnInit() {

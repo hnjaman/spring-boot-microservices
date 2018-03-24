@@ -18,6 +18,8 @@ import { PassportformComponent } from './components/passportform/passportform.co
 
 const appRoutes:Routes=[
     {path:'', component:ListuserComponent},
+    {path:'nidlist', component: NidlistComponent},
+    {path:'passportlist', component: PassportlistComponent},
     {path:'op', component:UserFormComponent},
     {path:'nid', component:NidformComponent},
     {path:'passport', component:PassportformComponent}
@@ -29,7 +31,9 @@ const appRoutes:Routes=[
     ListuserComponent,
     UserFormComponent,
     NidformComponent,
-    PassportformComponent
+    PassportformComponent,
+    NidlistComponent,
+    PassportlistComponent
   ],
   imports: [
     BrowserModule,

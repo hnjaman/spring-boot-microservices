@@ -15,7 +15,7 @@ import { Passport } from '../passport';
 @Injectable()
 export class UserService {
   
-  private baseUrl:string='http://localhost:8888/api';
+  private baseUrl:string='http://localhost:8888';
   private headers = new Headers({'Content-Type':'application/json'});
   private options = new RequestOptions({headers:this.headers});
   
@@ -118,13 +118,13 @@ export class UserService {
      return Observable.throw(error||"SERVER ERROR");
   }
 
-  setter(nid:Nid){
-      this.nid=nid;
-  }
+  // setter(nid:Nid){
+  //     this.nid=nid;
+  // }
 
-  getter(){
-    return this.nid;
-  }
+  // getter(){
+  //   return this.nid;
+  // }
 
   setterNid(nid:Nid){
     this.nid=nid;

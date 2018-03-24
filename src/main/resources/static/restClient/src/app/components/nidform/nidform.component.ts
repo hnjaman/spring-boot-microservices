@@ -11,13 +11,14 @@ import { error } from 'protractor';
 })
 export class NidformComponent implements OnInit {
 
- /** private nid:Nid; */
+  private nid:Nid; 
 
-  private nid = new Nid();
+  //private nid = new Nid();
 
   private nidError:Nid;
   private isNidCreated:boolean=false;
   private nidExist:boolean=false;
+  
 
   constructor(private _userService:UserService,private _rotuer:Router) { }
 
@@ -47,9 +48,9 @@ export class NidformComponent implements OnInit {
     )
   }
   
-  /**
+  
     processNidForm(){
-      if(this.nid.id==undefined){
+      if(this.nid.nid==undefined){
         this._userService.createNid(this.nid).subscribe((nid)=>{
           console.log(nid);
           this._rotuer.navigate(['/']);
@@ -60,10 +61,11 @@ export class NidformComponent implements OnInit {
         this._userService.updateNid(this.nid).subscribe((nid)=>{
           console.log(nid);
           this._rotuer.navigate(['/']);
+          //this.updateNid=true;
         },(error)=>{
           console.log(error);
         });
       }
     }
-  */
+  
 }

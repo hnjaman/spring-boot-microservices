@@ -6,48 +6,32 @@
       Congratulations account is created
   </div>
 
-  <form (ngSubmit)="createNid()">
+<div class="container">
+    <form (ngSubmit)="processNidForm()">
+        <div class="form group">
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" class="form-control" [(ngModel)]="nid.fname">
+        </div>
+        <div class="form group">
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" class="form-control" [(ngModel)]="nid.lname">
+        </div>
 
-      <div class="form group">
-          <label for="fname" class="col-2 col-form-label">First Name</label>
-          <input type="text" name="fname" id="fname" class="form-control" [(ngModel)]="nid.fname">
-      </div>
-      <div class="col-10" *ngIf="nidError.fname">
-        <span class="text text-denger">{{nidError.fname}}</span>
-      </div>
+        <div class="form group">
+            <label for="fname">Nid</label>
+            <input type="text" name="nid" class="form-control" [(ngModel)]="nid.nid">
+        </div>
 
+        <div class="form group">
+            <label for="lname">Passport</label>
+            <input type="text" name="ppid" class="form-control" [(ngModel)]="nid.ppid">
+        </div>
 
-      <div class="form group">
-          <label for="lname" class="col-2 col-form-label">Last Name</label>
-          <input type="text" name="lname" id="lname" class="form-control" [(ngModel)]="nid.lname">
-      </div>
-      <div class="col-10" *ngIf="nidError.lname">
-          <span class="text text-denger">{{nidError.lname}}</span>
-      </div>
-
-      <div class="form group">
-        <label for="fname" class="col-2 col-form-label">Nid</label>
-        <input type="text" name="nid" id="nid" class="form-control" [(ngModel)]="nid.nid">
-      </div>
-      <div class="col-10" *ngIf="nidError.nid">
-          <span class="text text-denger">{{nidError.nid}}</span>
-      </div>
-
-      <div class="form group">
-        <label for="lname" class="col-2 col-form-label">Passport</label>
-        <input type="text" name="ppid" id="ppid" class="form-control" [(ngModel)]="nid.ppid">
-      </div>
-      <div class="col-10" *ngIf="nidError.ppid">
-          <span class="text text-denger">{{nidError.ppid}}</span>
-      </div>
-
-      <div class="form group">
-        <label for="lname" class="col-2 col-form-label">Birthdate</label>
-        <input type="text" name="birthdate" id="birthdate" class="form-control" [(ngModel)]="nid.birthdate">
-      </div>
-      <div class="col-10" *ngIf="nidError.birthdate">
-          <span class="text text-denger">{{nidError.birthdate}}</span>
-      </div>
-
-      <input type="submit" value="save" class="btn btn-success">
-  </form>
+        <div class="form group">
+            <label for="lname">Birthdate</label>
+            <input type="text" name="birthdate" class="form-control" [(ngModel)]="nid.birthdate">
+        </div>
+        
+        <input type="submit" value="save" class="btn btn-success">
+    </form>
+  </div>

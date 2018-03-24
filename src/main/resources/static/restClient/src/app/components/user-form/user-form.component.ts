@@ -14,7 +14,7 @@ export class UserFormComponent implements OnInit {
   constructor(private _userService:UserService,private _rotuer:Router) { }
 
   ngOnInit() {
-    this.user=this._userService.getter();
+    //this.user=this._userService.getter();
   }
 
   processForm(){

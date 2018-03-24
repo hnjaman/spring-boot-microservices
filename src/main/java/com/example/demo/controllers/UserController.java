@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 @CrossOrigin(origins="http://localhost:4200", allowedHeaders="*")
 public class UserController {
 	
@@ -94,18 +94,19 @@ public class UserController {
 	 ***************************		Passport
 	 * */
 	
-	@GetMapping("/passports")
-	public List<Passport> getPasswords(){
+	@GetMapping("/passports")				//ok
+	public List<Passport> getPassports(){
 		return ipassport.findAll();
 	}
 	
-	@GetMapping("/passports/{ppid}")
+	@GetMapping("/passports/{ppid}")		//ok
 	public Passport getPassport(@PathVariable String ppid) {
 		return ipassport.findOne(ppid);
 	}
 	
-	@PostMapping("/passport")
+	@PostMapping("/passport")				//ok
 	public ResponseEntity<Object> createPassport(@RequestBody @Valid Passport newpassport, BindingResult bindingResult) {
+		
 		if(bindingResult.hasFieldErrors()) {
 			errors = new HashMap<>();
 			for(FieldError error : bindingResult.getFieldErrors()) {
@@ -126,14 +127,15 @@ public class UserController {
  		
 	}
 	
-	@DeleteMapping("/passports/{ppid}")
+	@DeleteMapping("/passports/{ppid}")			//ok
 	public boolean deletePassport(@PathVariable String ppid) {
 		ipassport.delete(ppid);
 		return true;
 	}
 	
-	@PutMapping("/passport")
+	@PutMapping("/passport")					// ok .... but need to test deeply
 	public Passport updatePassport(@RequestBody Passport newpassport) {
+		
 		return ipassport.save(newpassport);
 	}
 	
