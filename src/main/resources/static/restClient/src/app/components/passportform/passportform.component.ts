@@ -9,16 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./passportform.component.css']
 })
 export class PassportformComponent implements OnInit {
-private passport:Passport;
 
-  constructor(private _userService:UserService,private _rotuer:Router) { }
+  private passport:Passport;
+
+  constructor(
+    private _userService:UserService,
+    private _rotuer:Router
+  ) { }
 
   ngOnInit() {
     this.passport=this._userService.getterPassport();
   }
 
   processPassportForm(){
-    if(this.passport.id==undefined){
+    if(this.passport.ppid==undefined){
        this._userService.createPassport(this.passport).subscribe((passport)=>{
          console.log(passport);
          this._rotuer.navigate(['/']);

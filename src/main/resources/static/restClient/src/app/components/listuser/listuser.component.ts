@@ -71,7 +71,7 @@ createNid(){
 /********************* Passport actions */
 
 deletePassport(passport){
-  this._userService.deletePassport(passport.id).subscribe((data)=>{
+  this._userService.deletePassport(passport.ppid).subscribe((data)=>{
     this.passports.splice(this.passports.indexOf(passport),1);
   },(error)=>{
     console.log(error);

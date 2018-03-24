@@ -10,8 +10,8 @@
               <th>Birthday</th>
           </thead>
           <tbody>
-              <tr *ngFor="let passport of passports">
-                  <td>{{passport.id}}</td>
+              <tr ng-repeat="let passport of passports">
+                  <td>{{ $index + 1 }}</td>
                   <td>{{passport.fname}}</td>
                   <td>{{passport.lname}}</td>
                   <td>{{passport.email}}</td>

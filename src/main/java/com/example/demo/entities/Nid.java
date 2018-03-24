@@ -27,7 +27,7 @@ public class Nid implements Serializable{
     
     @NotBlank(message="Enter NID Number")
     @Id
-    @Size(min=13,max=18,message="Enter a valid NID Number")
+    @Size(min=13,max=18,message="Nid digit length min 13 & less 18")
     private String nid;
     
     private String ppid;

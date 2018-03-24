@@ -23,24 +23,22 @@ private passports:Passport[];
 
   /********************* Passport actions */
 
-deletePassport(passport){
-  this._userService.deletePassport(passport.id).subscribe((data)=>{
-    this.passports.splice(this.passports.indexOf(passport),1);
-  },(error)=>{
-    console.log(error);
-  });
-}
+  deletePassport(passport){
+    this._userService.deletePassport(passport.ppid).subscribe((data)=>{
+      this.passports.splice(this.passports.indexOf(passport),1);
+    },(error)=>{
+      console.log(error);
+    });
+  }
 
-updatePassport(passport){
-  this._userService.setterPassport(passport);
-  this._router.navigate(['/passport']);
-}
+  updatePassport(passport){
+    this._userService.setterPassport(passport);
+    this._router.navigate(['/passport']);
+  }
 
-createPassport(){
-  let passport = new Passport();
-  this._userService.setterPassport(passport);
-  this._router.navigate(['/passport'])
-}
-
-
+  createPassport(){
+    let passport = new Passport();
+    this._userService.setterPassport(passport);
+    this._router.navigate(['/passport'])
+  }
 }

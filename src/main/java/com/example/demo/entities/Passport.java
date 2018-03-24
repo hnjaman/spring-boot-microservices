@@ -3,9 +3,8 @@ package com.example.demo.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -33,7 +32,7 @@ public class Passport implements Serializable{
 	    private String email;
 	    
 	   // @Id
-	    @Size(min=13,max=18,message="Enter a valid Nid Number")
+	    @Size(min=13,max=18,message="Nid digit length min 13 & less 18")
 	    @NotBlank(message="Enter Nid Number")
 	    private String nid;
 	    
