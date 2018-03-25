@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Nid } from '../../nid';
 import { UserService } from '../../shared-service/user.service';
 import { Router } from '@angular/router';
-import { error } from 'protractor';
+import { error } from 'util';
 
 @Component({
   selector: 'app-nidform',
@@ -11,9 +11,9 @@ import { error } from 'protractor';
 })
 export class NidformComponent implements OnInit {
 
-  private nid:Nid; 
+  //private nid:Nid; 
 
-  //private nid = new Nid();
+  private nid = new Nid();
 
   private nidError:Nid;
   private isNidCreated:boolean=false;
@@ -22,7 +22,7 @@ export class NidformComponent implements OnInit {
 
   constructor(
     private _userService:UserService,
-    private _rotuer:Router
+   // private _rotuer:Router
   ) { }
 
   ngOnInit() {
@@ -40,18 +40,19 @@ export class NidformComponent implements OnInit {
         this.nidError= new Nid();
       },
       error=>{
+        console.log(error);
         this.nidError=error.error;
+        console.log(error.error);
         this.isNidCreated=false;
         if(error.status==409){
           this.isNidCreated=false;
           this.nidExist=true;
         }
-        console.log(error);
       }
     )
   }
   
-  
+  /** 
     processNidForm(){
       if(this.nid.nid==undefined){
         this._userService.createNid(this.nid).subscribe((nid)=>{
@@ -70,5 +71,5 @@ export class NidformComponent implements OnInit {
         });
       }
     }
-  
+  *******************************/
 }

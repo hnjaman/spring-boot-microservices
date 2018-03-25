@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import{Http, Response, Headers, RequestOptions} from '@angular/http';
+import{HttpClient, HttpHeaders} from '@angular/common/http';
 import{Observable}   from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -18,14 +19,18 @@ export class UserService {
   private baseUrl:string='http://localhost:8888';
   private headers = new Headers({'Content-Type':'application/json'});
   private options = new RequestOptions({headers:this.headers});
-  
+
+  private httpheaders = {headers: new HttpHeaders({'content-type':'application/json'})};
  /** private httpheader = {Headers: new this.httpheader({'Content-Type':'application/json'})}; */
   
   private user = new User();
   private nid = new Nid();
   private passport = new Passport();
 
-  constructor(private _http:Http) { }
+  constructor(
+    private _http:Http,
+    private http: HttpClient
+  ) { }
 
 
   
@@ -51,11 +56,19 @@ export class UserService {
   .catch(this.errorHandler);
   }
 
+   createNid(nid){
+     return this.http.post(this.baseUrl+'/nid',nid,this.httpheaders)
+   .catch(this.errorHandler);
+   }
 
-  createNid(nid:Nid){
-    return this._http.post(this.baseUrl+'/nid',JSON.stringify(nid), this.options).map((response:Response)=>response.json())
-  .catch(this.errorHandler);
-  }
+  // createNid(nid:Nid){
+  //   return this._http.post(this.baseUrl+'/nid',JSON.stringify(nid), this.options).map((response:Response)=>response.json())
+  // .catch(this.errorHandler);
+  // }
+
+  // createUser(user){
+  //     return this.http.post(this.url,user,this.httpheaders);
+  // }
 
   
 
@@ -82,10 +95,9 @@ export class UserService {
   }
 
   createPassport(passport:Passport){
-    return this._http.post(
-      this.baseUrl+'/passport',JSON.stringify(passport),this.options
-    ).map((response:Response)=>response.json())
-  .catch(this.errorHandler);
+    return this.http.post(
+      this.baseUrl+'/passport',passport,this.httpheaders)
+      .catch(this.errorHandler);
   }
 
   /********************************** Users */
