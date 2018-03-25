@@ -94,17 +94,17 @@ public class UserController {
 	 ***************************		Passport
 	 * */
 	
-	@GetMapping("/passports")				//ok
+	@GetMapping("/passports")				
 	public List<Passport> getPassports(){
 		return ipassport.findAll();
 	}
 	
-	@GetMapping("/passports/{ppid}")		//ok
+	@GetMapping("/passports/{ppid}")		
 	public Passport getPassport(@PathVariable String ppid) {
 		return ipassport.findOne(ppid);
 	}
 	
-	@PostMapping("/passport")				//ok
+	@PostMapping("/passport")				
 	public ResponseEntity<Object> createPassport(@RequestBody @Valid Passport newpassport, BindingResult bindingResult) {
 		
 		if(bindingResult.hasFieldErrors()) {
@@ -127,13 +127,13 @@ public class UserController {
  		
 	}
 	
-	@DeleteMapping("/passports/{ppid}")			//ok
+	@DeleteMapping("/passports/{ppid}")		
 	public boolean deletePassport(@PathVariable String ppid) {
 		ipassport.delete(ppid);
 		return true;
 	}
 	
-	@PutMapping("/passport")					// ok .... but need to test deeply
+	@PutMapping("/passport")					
 	public Passport updatePassport(@RequestBody Passport newpassport) {
 		
 		return ipassport.save(newpassport);

@@ -16,7 +16,7 @@ export class UserFormComponent implements OnInit {
   ngOnInit() {
     //this.user=this._userService.getter();
   }
-
+  /*********** 
   processForm(){
     if(this.user.id==undefined){
        this._userService.createUser(this.user).subscribe((user)=>{
@@ -34,5 +34,5 @@ export class UserFormComponent implements OnInit {
        });
     }
   }
-
+  *********************************/
 }

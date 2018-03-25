@@ -10,7 +10,12 @@ import { Router } from '@angular/router';
 })
 export class PassportformComponent implements OnInit {
 
-  private passport:Passport;
+ // private passport:Passport;
+
+  private passport = new Passport();
+  private passportError: Passport;
+  private isPassCreated: boolean=false;
+  private passportExist: boolean=false;
 
   constructor(
     private _userService:UserService,
@@ -19,6 +24,27 @@ export class PassportformComponent implements OnInit {
 
   ngOnInit() {
     this.passport=this._userService.getterPassport();
+  }
+
+  createPassport(){
+    this._userService.createPassport(this.passport).subscribe(
+      data=>{
+        console.log(data);
+        this.passport=new Passport();
+        this.isPassCreated=true;
+        this.passportExist=false;
+        this.passportError= new Passport();
+      },
+      error=>{
+        this.passportError=error.error;
+        this.isPassCreated=false;
+        if(error.status==409){
+          this.isPassCreated=false;
+          this.passportExist=true;
+        }
+        console.log(error);
+      }
+    )
   }
 
   processPassportForm(){

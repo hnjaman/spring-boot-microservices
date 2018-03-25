@@ -20,7 +20,10 @@ export class NidformComponent implements OnInit {
   private nidExist:boolean=false;
   
 
-  constructor(private _userService:UserService,private _rotuer:Router) { }
+  constructor(
+    private _userService:UserService,
+    private _rotuer:Router
+  ) { }
 
   ngOnInit() {
     this.nid=this._userService.getterNid();

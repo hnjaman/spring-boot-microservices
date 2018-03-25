@@ -51,6 +51,7 @@ export class UserService {
   .catch(this.errorHandler);
   }
 
+
   createNid(nid:Nid){
     return this._http.post(this.baseUrl+'/nid',JSON.stringify(nid), this.options).map((response:Response)=>response.json())
   .catch(this.errorHandler);
@@ -88,7 +89,7 @@ export class UserService {
   }
 
   /********************************** Users */
-
+/** 
   getUsers(){
     return this._http.get(this.baseUrl+'/users',this.options).map((response:Response)=>response.json())
       .catch(this.errorHandler);
@@ -113,10 +114,13 @@ export class UserService {
     return this._http.put(this.baseUrl+'/user',JSON.stringify(user),  this.options).map((response:Response)=>response.json())
       .catch(this.errorHandler);
   }
+
+  **********************************/
   
   errorHandler(error:Response){
      return Observable.throw(error||"SERVER ERROR");
   }
+
 
   // setter(nid:Nid){
   //     this.nid=nid;
