@@ -14,6 +14,7 @@
             <div class="col-10" *ngIf="nidError?.fname">
                 <span class="text text-danger">{{nidError.fname}}</span>
             </div>
+
             <input type="text" [(ngModel)]="nid.fname" name="fname" id="fname" class="form-control">
         </div>
 
@@ -24,6 +25,7 @@
             </div>
             <input type="text" name="lname" class="form-control" [(ngModel)]="nid.lname">
         </div>
+
 
         <div class="form group">
             <label for="fname" class="col-2 col-form-label">Nid</label>
