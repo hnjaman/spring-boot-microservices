@@ -24,7 +24,7 @@ public class CrudbootangApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudbootangApplication.class, args);
 	}
-
+//test commit
 	@Override
 	public void run(String... args) throws Exception {
 		userRepository.save(new User("ABC", "XYZ"));
