@@ -29,11 +29,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("/api")	// #	http://localhost:8888/nids running url
-// database console url 	http://localhost:8888/user_db/login.do?jsessionid=a8d9a018c3bff6605469171e773ed030
 @CrossOrigin(origins="http://localhost:4200", allowedHeaders="*")
-public class UserController {
-	
+public class UserController {	// # running url->	http://localhost:8888/nids
+
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -47,7 +45,7 @@ public class UserController {
 	Map<String, String> errors;
 
 	/*
-	 ********************************* 		Nid
+	 * 		Nid service
 	 * */
 	
 	@GetMapping("/nids")
@@ -92,7 +90,7 @@ public class UserController {
 	
 	
 	/*
-	 ***************************		Passport
+	 *		Passport service
 	 * */
 	
 	@GetMapping("/passports")				
@@ -143,7 +141,7 @@ public class UserController {
 	
 
 	/*
-	 * 		User
+	 * 		User service
 	 * */
 	
 	@GetMapping("/users")

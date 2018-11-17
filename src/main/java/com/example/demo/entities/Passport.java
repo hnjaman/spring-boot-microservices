@@ -14,9 +14,6 @@ import org.hibernate.validator.constraints.NotBlank;
 //@IdClass(Passport.class)
 public class Passport implements Serializable{
 
-		/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 
@@ -42,10 +39,7 @@ public class Passport implements Serializable{
 	    
 	    @NotBlank(message="Enter your Date of Birth")
 	    private String birthdate;
-	    
-	    
 
-	    
 
 		@Override
 		public String toString() {
@@ -53,16 +47,11 @@ public class Passport implements Serializable{
 					+ ppid + ", birthdate=" + birthdate + "]";
 		}
 
-
-
-
 		public Passport() {
 			
 		}
 	
-		
-		
-		
+
 		public Passport(String fname, String lname, String email, String nid, String ppid, String birthdate) {
 			
 			this.fname = fname;
@@ -80,12 +69,14 @@ public class Passport implements Serializable{
 		public void setFname(String fname) {
 			this.fname = fname;
 		}
+
 		public String getLname() {
 			return lname;
 		}
 		public void setLname(String lname) {
 			this.lname = lname;
 		}
+
 		public String getEmail() {
 			return email;
 		}
@@ -99,18 +90,19 @@ public class Passport implements Serializable{
 		public void setPpid(String ppid) {
 			this.ppid = ppid;
 		}
+
 		public String getBirthdate() {
 			return birthdate;
 		}
 		public void setBirthdate(String birthdate) {
 			this.birthdate = birthdate;
 		}
+
 		public String getNid() {
 			return nid;
 		}
 		public void setNid(String nid) {
 			this.nid = nid;
 		}
-	       
-	
+
 }

@@ -12,10 +12,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 //@IdClass(Nid.class)
 public class Nid implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	
@@ -34,9 +31,7 @@ public class Nid implements Serializable{
     
     @NotBlank(message="Enter your Date of Birth")
     private String birthdate;
-    
-    
-    
+
     
 	public Nid(String fname, String lname, String nid, String ppid, String birthdate) {
 		this.fname = fname;
@@ -45,14 +40,11 @@ public class Nid implements Serializable{
 		this.ppid = ppid;
 		this.birthdate = birthdate;
 	}
-	
-	
+
 	
 	public Nid() {
 		
 	}
-
-	
 
 
 	@Override
@@ -68,6 +60,7 @@ public class Nid implements Serializable{
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
+
 	public String getLname() {
 		return lname;
 	}
@@ -81,6 +74,7 @@ public class Nid implements Serializable{
 	public void setPpid(String ppid) {
 		this.ppid = ppid;
 	}
+
 	public String getBirthdate() {
 		return birthdate;
 	}
@@ -89,16 +83,11 @@ public class Nid implements Serializable{
 	}
 
 
-
 	public String getNid() {
 		return nid;
 	}
-
-
 	public void setNid(String nid) {
 		this.nid = nid;
 	}
-    
-	
-	
+
 }

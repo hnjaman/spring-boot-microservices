@@ -18,12 +18,14 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getFname() {
 		return fname;
 	}
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
+
 	public String getLname() {
 		return lname;
 	}
@@ -37,8 +39,7 @@ public class User {
 		this.fname = fname;
 		this.lname = lname;
 	}
-	
-	
+
 	
 	@Override
 	public String toString() {
@@ -48,5 +49,4 @@ public class User {
 	
 	public User() {
 	}
-    
 }
