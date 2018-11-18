@@ -1,0 +1,63 @@
+<div class="alert alert-danger col-10" *ngIf="passportExist">
+  A user with this NID Exists
+</div>
+
+<div class="alert alert-success col-10" *ngIf="isPassportCreated">
+  Congratulations account is created
+</div>
+
+
+<div class="container">
+
+  <form (ngSubmit)="createPassport()">
+    <div class="form group">
+      <label for="fname" class="col-2 col-form-label">First Name</label>
+      <div class="col-10" *ngIf="passportError?.fname">
+          <span class="text text-danger">{{passportError.fname}}</span>
+      </div>
+      <input type="text" name="fname" class="form-control" [(ngModel)]="passport.fname">
+    </div>
+
+    <div class="form group">
+      <label for="lname" class="col-2 col-form-label">Last Name</label>
+      <div class="col-10" *ngIf="passportError?.lname">
+          <span class="text text-danger">{{passportError.lname}}</span>
+      </div>
+      <input type="text" name="lname" class="form-control" [(ngModel)]="passport.lname">
+    </div>
+
+    <div class="form group">
+      <label for="email" class="col-2 col-form-label">Email</label>
+      <div class="col-10" *ngIf="passportError?.email">
+          <span class="text text-danger">{{passportError.email}}</span>
+      </div>
+      <input type="text" name="email" class="form-control" [(ngModel)]="passport.email">
+    </div>
+
+    <div class="form group">
+      <label for="nid" class="col-2 col-form-label">Nid</label>
+      <div class="col-10" *ngIf="passportError?.nid">
+          <span class="text text-danger">{{passportError.nid}}</span>
+      </div>
+      <input type="text" name="nid" class="form-control" [(ngModel)]="passport.nid">
+    </div>
+
+    <div class="form group">
+      <label for="ppid" class="col-2 col-form-label">Passport</label>
+      <div class="col-10" *ngIf="passportError?.ppid">
+          <span class="text text-danger">{{passportError.ppid}}</span>
+      </div>
+      <input type="text" name="ppid" class="form-control" [(ngModel)]="passport.ppid">
+    </div>
+
+    <div class="form group">
+      <label for="birthdate" class="col-2 col-form-label">Birthdate</label>
+      <div class="col-10" *ngIf="passportError?.birthdate">
+          <span class="text text-danger">{{passportError.birthdate}}</span>
+      </div>
+      <input type="text" name="birthdate" class="form-control" [(ngModel)]="passport.birthdate">
+    </div>
+    <br>
+    <input type="submit" value="save" class="btn btn-success">
+  </form>
+</div>

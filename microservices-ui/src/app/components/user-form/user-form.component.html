@@ -1,0 +1,17 @@
+<div class="container">
+
+  <form (ngSubmit)="processForm()">
+      <div class="form group">
+          <input type="hidden" name="id" class="form-control" [(ngModel)]="user.id">
+      </div>
+      <div class="form group">
+          <label for="fname">First Name</label>
+          <input type="text" name="fname" class="form-control" [(ngModel)]="user.fname">
+      </div>
+      <div class="form group">
+          <label for="lname">Last Name</label>
+          <input type="text" name="lname" class="form-control" [(ngModel)]="user.lname">
+      </div>
+      <input type="submit" value="save" class="btn btn-success">
+  </form>
+</div>

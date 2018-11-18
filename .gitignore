@@ -69,8 +69,7 @@ hs_err_pid*
 /tmp
 /out-tsc
 
-# dependencies
-/src/main/resources/static/restClient/node_modules
+
 
 # IDEs and editors
 /.idea
@@ -97,6 +96,10 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+
+# dependencies
+/microservices-ui/node_modules
+/microservices-ui/node_modules/
 
 # e2e
 /e2e/*.js

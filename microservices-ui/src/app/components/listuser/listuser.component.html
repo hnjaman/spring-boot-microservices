@@ -1,0 +1,77 @@
+<div class="container">
+    <!--
+    <button class="btn btn-primary" (click)="newUser()">New User</button>
+    
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Operations </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.fname}}</td>
+                <td>{{user.lname}}</td>
+                <td><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+                    <button class="btn btn-primary" (click)="updateUser(user)">Edit</button></td>
+
+            </tr>
+        </tbody>
+     </table> 
+    -->
+
+ <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>NID </th>
+            <th>Passport</th>
+            <th>Birthday</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let nid of nids; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{nid.fname}}</td>
+                <td>{{nid.lname}}</td>
+                <td>{{nid.nid}}</td>
+                <td>{{nid.ppid}}</td>
+                <td>{{nid.birthdate}}</td>
+                <td><button class="btn btn-danger" (click)="deleteNid(nid)">Delete</button>
+                    <button class="btn btn-primary" (click)="updateNid(nid)">Edit</button></td>
+            </tr>
+        </tbody>
+        <button class="btn btn-primary" (click)="createNid()">New Nid</button>
+    </table>
+   
+
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>NID </th>
+            <th>Passport</th>
+            <th>Birthday</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let passport of passports; let i = index">
+            <!-- <tr ng-repeat="passport in passports;"> -->
+                <td>{{ i + 1 }}</td>
+                <td>{{passport.fname}}</td>
+                <td>{{passport.lname}}</td>
+                <td>{{passport.email}}</td>
+                <td>{{passport.nid}}</td>
+                <td>{{passport.ppid}}</td>
+                <td>{{passport.birthdate}}</td>
+                <td><button class="btn btn-danger" (click)="deletePassport(passport)">Delete</button>
+                    <button class="btn btn-primary" (click)="updatePassport(passport)">Edit</button></td>
+            </tr>
+        </tbody>
+        <button class="btn btn-primary" (click)="createPassport()">New Passport</button>
+    </table>
+  
+</div>
