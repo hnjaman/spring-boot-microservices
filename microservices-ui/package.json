@@ -21,10 +21,14 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@types/googlemaps": "^3.30.16",
+    "angularfire2": "^5.0.0-rc.6",
     "angularjs-datepicker": "^2.1.23",
     "bootstrap": "^4.0.0-beta.3",
     "core-js": "^2.4.1",
-    "rxjs": "^5.5.6",
+    "firebase": "4.12.1",
+    "mapbox-gl": "^0.51.0",
+    "rxjs": "5.5.10",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {

@@ -15,15 +15,19 @@ import { PassportlistComponent } from './components/passportlist/passportlist.co
 
 import { NidformComponent } from './components/nidform/nidform.component';
 import { PassportformComponent } from './components/passportform/passportform.component';
+import { MapBoxComponent } from './components/map-box/map-box.component';
+import { MapService } from './shared-service/map.service';
 
 
 const appRoutes:Routes=[
-    {path:'', component:ListuserComponent},
+    {path:'', component:MapBoxComponent},
+    {path:'changed', component:ListuserComponent},
     {path:'nidlist', component: NidlistComponent},
     {path:'passportlist', component: PassportlistComponent},
     {path:'op', component:UserFormComponent},
     {path:'nid', component:NidformComponent},
-    {path:'passport', component:PassportformComponent}
+    {path:'passport', component:PassportformComponent},
+    {path:'map', component:MapBoxComponent}
 ];
 
 @NgModule({
@@ -34,7 +38,8 @@ const appRoutes:Routes=[
     NidformComponent,
     PassportformComponent,
     NidlistComponent,
-    PassportlistComponent
+    PassportlistComponent,
+    MapBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,7 @@ const appRoutes:Routes=[
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService],
+  providers: [UserService,MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
