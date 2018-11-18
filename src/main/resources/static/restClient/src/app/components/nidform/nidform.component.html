@@ -45,12 +45,15 @@
         </div>
 
 
+
         <div class="form group">
+          
             <label for="fname" class="col-2 col-form-label">Birthdate</label>
             <div class="col-10" *ngIf="nidError?.birthdate">
-                <span class="text text-danger">{{nidError.birthdate}}</span>
+              <span class="text text-danger">{{nidError.birthdate}}</span>
             </div>
-            <input type="text" name="birthdate" class="form-control" [(ngModel)]="nid.birthdate">
+
+            <input type="date"name="birthdate" class="form-control" [(ngModel)]="nid.birthdate" placeholder="Choose a date">
         </div>
 
         <br>

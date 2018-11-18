@@ -41,7 +41,6 @@ public class UserController {	// # running url->	http://localhost:8888/nids
 	@Autowired
 	private Ipassport ipassport;
 	
-	
 	Map<String, String> errors;
 
 	/*
@@ -56,7 +55,7 @@ public class UserController {	// # running url->	http://localhost:8888/nids
 	public Nid getNid(@PathVariable String nid) {
 		return inid.findOne(nid);
 	}
-	
+
 	@PostMapping("/nid")
 	public ResponseEntity<Object> createNid(@RequestBody @Valid Nid newnid, BindingResult bindingResult) {
 		
