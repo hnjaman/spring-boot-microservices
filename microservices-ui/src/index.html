@@ -1,16 +1,33 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>RestClient</title>
-  <base href="/">
+  <head>
+    <meta charset="utf-8">
+    <title>RestClient</title>
+    <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-</head>
-<body ng-app="myApp">
-  <app-root></app-root>
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  </head>
+
+  <body ng-app="myApp">
+    <app-root></app-root>
+    <script>
+      function validation(){
+        var mobile = $("#mobile").val();
+	      var phoneno = /^01([5-9]{1})([0-9]{8})|013([0-9]{8})$/;
+	     
+	      if(mobile.length == 0){
+	     	  alert("Mobile number can not be empty");
+	      }else if(mobile.length != 11){
+	     	  alert("Mobile number will be 11 digit");
+	      }else if(mobile.match(phoneno)) {
+		  	  alert(mobile);
+		    }else {
+		      alert("Not valid number");
+		    }
+      }
+    </script>
+  </body>
 </html>

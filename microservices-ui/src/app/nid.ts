@@ -4,4 +4,5 @@ export class Nid {
     nid:string;
     ppid:string;
     birthdate:string;
+    mobile:string;
 }

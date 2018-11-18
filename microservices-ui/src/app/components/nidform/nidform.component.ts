@@ -31,6 +31,20 @@ export class NidformComponent implements OnInit {
 
 
   createNid(){
+
+        var usermobile = this.nid.mobile;
+	      var phoneno = /^01([5-9]{1})([0-9]{8})|013([0-9]{8})$/;
+	     
+	      if(usermobile.length == 0){
+	     	  alert("Mobile number can not be empty");
+	      }else if(usermobile.length != 11){
+	     	  alert("Mobile number will be 11 digit");
+	      }else if(usermobile.match(phoneno)) {
+		  	  //alert(usermobile);
+		    }else {
+		      alert("Not valid number");
+		    }
+
     this._userService.createNid(this.nid).subscribe(
       data=>{
         console.log(data);
