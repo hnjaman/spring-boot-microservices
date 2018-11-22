@@ -9,8 +9,13 @@ import { Nid } from '../../nid';
   styleUrls: ['./nidlist.component.css']
 })
 export class NidlistComponent implements OnInit {
-private nids:Nid[];
-  constructor(private _userService:UserService, private _router:Router) { }
+  
+  private nids:Nid[];
+  
+  constructor(
+    private _userService:UserService, 
+    private _router:Router
+  ) { }
 
   ngOnInit() {
     this._userService.getNids().subscribe((nids)=>{
@@ -22,27 +27,27 @@ private nids:Nid[];
   }
 
   
-/** Nid actions */
+  /** Nid actions */
 
 
-deleteNid(nid){
-  this._userService.deleteNid(nid.id).subscribe((data)=>{
-    this.nids.splice(this.nids.indexOf(nid),1);
-  },(error)=>{
-    console.log(error);
-  });
-}
+  deleteNid(nid){
+    this._userService.deleteNid(nid.id).subscribe((data)=>{
+      this.nids.splice(this.nids.indexOf(nid),1);
+    },(error)=>{
+      console.log(error);
+    });
+  }
 
-updateNid(nid){
-  this._userService.setterNid(nid);
-  this._router.navigate(['/nid']);
-}
+  updateNid(nid){
+    this._userService.setterNid(nid);
+    this._router.navigate(['/nid']);
+  }
 
-createNid(){
-  let nid = new Nid();
-  this._userService.setterNid(nid);
-  this._router.navigate(['/nid']);
-}
+  createNid(){
+    let nid = new Nid();
+    this._userService.setterNid(nid);
+    this._router.navigate(['/nid']);
+  }
 
 
 }

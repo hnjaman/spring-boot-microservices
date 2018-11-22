@@ -1,0 +1,19 @@
+<div class="container">
+  <table class="table table-striped">
+          <thead>
+              <th>Id</th>
+              <th>Message</th>
+              <th>Date</th>
+          </thead>
+          <tbody>
+              <tr *ngFor="let m of sms; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{m.message}}</td>
+                  <td>{{m.date}}</td>
+                  <td><button class="btn btn-danger">Delete</button>
+                      <button class="btn btn-primary">Edit</button></td>
+              </tr>
+          </tbody>
+      </table>
+  
+</div>

@@ -7,6 +7,8 @@ import{Nid} from '../../nid';
 import{Router}  from '@angular/router';
 import { Passport } from '../../passport';
 import { error } from 'protractor';
+import { Sms } from '../../sms';
+import { SmsService } from '../../shared-service/sms.service';
 
 @Component({
   selector: 'app-listuser',
@@ -18,11 +20,12 @@ export class ListuserComponent implements OnInit {
   private users:User[];
   private nids:Nid[];
   private passports:Passport[];
+  private sms: Sms[];
   
-
-
-
-  constructor(private _userService:UserService, private _router:Router) { }
+  constructor(
+    private _userService:UserService,
+    private smsService: SmsService, 
+    private _router:Router) { }
 
   ngOnInit() {
       // this._userService.getUsers().subscribe((users)=>{
@@ -42,6 +45,13 @@ export class ListuserComponent implements OnInit {
       this._userService.getPassports().subscribe((passports)=>{
         console.log(passports);
         this.passports=passports;
+      },(error)=>{
+        console.log(error);
+      })
+
+      this.smsService.getSms().subscribe((sms)=>{
+        console.log(sms);
+        this.sms=sms;
       },(error)=>{
         console.log(error);
       })
