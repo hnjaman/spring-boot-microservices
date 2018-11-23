@@ -28,7 +28,12 @@ mvn spring-boot:run
 ```
 # Run Angular User interface
 cd microservice-ui
+# install node package manager
 npm install
 ng s --open
 # Go to http://localhost:4200/
 ```
+
+### Copyright & License
+
+MIT License, see the link:LICENSE[LICENSE] file for details.
