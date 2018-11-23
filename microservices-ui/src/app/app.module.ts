@@ -19,16 +19,34 @@ import { SmslistComponent } from './components/smslist/smslist.component';
 import { UserService } from './shared-service/user.service';
 import { MapService } from './shared-service/map.service';
 import { SmsService } from './shared-service/sms.service';
+import { TokenStorageService } from './auth/token-storage.service';
+import {AuthService} from './auth/auth.service';
+
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
+import { PmComponent } from './pm/pm.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+import { httpInterceptorProviders } from './auth/auth-interceptor';
 
 const appRoutes:Routes=[
-    {path:'', component:ListuserComponent},
+    {path:'changed', component:ListuserComponent},
     {path:'smslist', component: SmslistComponent},
     {path:'nidlist', component: NidlistComponent},
     {path:'passportlist', component: PassportlistComponent},
     {path:'op', component:UserFormComponent},
     {path:'nid', component:NidformComponent},
     {path:'passport', component:PassportformComponent},
-    {path:'map', component:MapBoxComponent}
+    {path:'map', component:MapBoxComponent},
+    { path: 'home', component: HomeComponent },
+    { path: 'user', component: UserComponent },
+    { path: 'pm', component: PmComponent },
+    { path: 'admin', component: AdminComponent },
+    { path: 'auth/login', component: LoginComponent },
+    { path: 'signup', component: RegisterComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
     
 ];
 
@@ -42,7 +60,13 @@ const appRoutes:Routes=[
     NidlistComponent,
     PassportlistComponent,
     MapBoxComponent,
-    SmslistComponent
+    SmslistComponent,
+    HomeComponent,
+    UserComponent,
+    PmComponent,
+    AdminComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +75,8 @@ const appRoutes:Routes=[
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService,MapService,SmsService],
+  providers: [UserService,MapService,SmsService,
+    TokenStorageService,AuthService,httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

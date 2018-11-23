@@ -16,6 +16,10 @@ import { Passport } from '../passport';
 export class UserService {
   
   private baseUrl:string='http://localhost:8888';
+  private userUrl = 'http://localhost:8777/api/test/user';
+  private pmUrl = 'http://localhost:8777/api/test/pm';
+  private adminUrl = 'http://localhost:8777/api/test/admin';
+
   private headers = new Headers({'Content-Type':'application/json'});
   private options = new RequestOptions({headers:this.headers});
 
@@ -32,6 +36,19 @@ export class UserService {
   ) { }
 
 
+  // role board
+
+  getUserBoard(): Observable<string> {
+    return this.http.get(this.userUrl, { responseType: 'text' });
+  }
+
+  getPMBoard(): Observable<string> {
+    return this.http.get(this.pmUrl, { responseType: 'text' });
+  }
+
+  getAdminBoard(): Observable<string> {
+    return this.http.get(this.adminUrl, { responseType: 'text' });
+  }
   
   /************************* Nid */
 

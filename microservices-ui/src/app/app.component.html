@@ -9,16 +9,45 @@
 <div class="map" id="map"></div>
 -->
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav" routerLinkActive="active">
 
+      <li class="nav-item">
+        <a class="nav-link" routerLink="home">Home</a>
+      </li>
 
-<div class="container" style="padding-top: 10px;">
-    <nav>
-        <a routerLink="/nidlist">Nid</a>
-        <a routerLink="/passportlist">Passport</a>
-        <a routerLink="/smslist">Sms</a>
-    </nav>
+      <li *ngIf="authority === 'user'" class="nav-item">
+        <a class="nav-link" routerLink="user">User Board</a>
+      </li>
 
-    <router-outlet></router-outlet>
+      <li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+
+      <li *ngIf="authority === 'pm'" class="nav-item">
+        <a class="nav-link" routerLink="pm">PM Board</a>
+      </li>
+      
+      <li *ngIf="!authority" class="nav-item">
+        <a class="nav-link" routerLink="auth/login">Login</a>
+      </li>
+
+      <li class="nav-item">
+         <a class="nav-link" routerLink="nidlist">Nid</a>
+      </li>
+
+      <li class="nav-item">
+         <a class="nav-link" routerLink="passportlist">Passport</a>
+      </li>
+
+      <li class="nav-item">
+         <a class="nav-link" routerLink="smslist">Sms</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
-
-
