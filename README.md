@@ -36,4 +36,4 @@ ng s --open
 
 ### Copyright & License
 
-MIT License, see the link:LICENSE[LICENSE] file for details.
+MIT License, see the link: [LICENSE](https://github.com/hnjaman/sping-boot-microservices/blob/master/LICENSE) file for details.
