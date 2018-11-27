@@ -9,7 +9,9 @@ Angular UI. All the services can be reused to any other application.
 - RESTful Microservices
 - JWT authentication
 - Cross-Origin Resource Sharing
-- Spring Boot, Spring Data JPA, Spring Security
+- Spring Boot, Spring cloud, Spring Data JPA, Spring Security
+- Eureka Naming Server
+- Zuul API Gateway
 - Angular
 - Java 8 (recommended), 10
 - Docker
@@ -38,6 +40,16 @@ create database if not exists user_db;
 ```
 
 ```
+# Run Eureka naming server to register your services  
+mvn clean install
+mvn spring-boot:run
+# Go to http://localhost:8761
+# Check "Instances currently registered with Eureka"
+# nothing will be shown because you didn't start any services
+```
+
+
+```
 # Build and run NID, Passport services  
 mvn clean install
 mvn spring-boot:run
@@ -47,14 +59,22 @@ mvn spring-boot:run
 ```
 # Build and run user authentication services  
 mvn spring-boot:run
-# Go to http://localhost:8777/
+# It will start on http://localhost:8777/
+# refresh Eureka (http://localhost:8761)
+# Check again "Instances currently registered with Eureka"
+# you will see user-authentication is UP
+# if you stop this services then it will be DOWN
+
+# If Eureka server didn’t receive any notification from a service. 
+# This service is unregistered from the Eureka server automatically.
 ```
 
 ```
 # Run sms service
 cd sms-service
 mvn spring-boot:run
-# Go to http://localhost:8999/sms
+# It will start on http://localhost:8999/sms
+# Refresh and check Eureka
 ```
 
 ```
