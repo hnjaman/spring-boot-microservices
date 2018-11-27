@@ -1,6 +1,4 @@
 package com.hnj.smsservice;
-
-import com.hnj.smsservice.entities.Sms;
 import com.hnj.smsservice.repositories.ISmsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-@EnableEurekaClient 	// inherits from @EnableDiscoveryClient.
+						    // inherits from @EnableDiscoveryClient.
 public class SmsServiceApplication implements CommandLineRunner {
 
 	@Autowired

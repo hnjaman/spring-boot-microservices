@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.hnj</groupId>
-	<artifactId>sms-service</artifactId>
+	<artifactId>zuul-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>sms-service</name>
-	<description>spring boot sms service for microservice</description>
+	<name>zuul-gateway</name>
+	<description>zuul gateway server</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,67 +22,24 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>Greenwich.M1</spring-cloud.version>
+		<spring-cloud.version>Greenwich.M3</spring-cloud.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-<!--
-        <dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
--->
-
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.6</version>
-		</dependency>
-
-        <!-- for java 10 only-->
-		<dependency>
-		    <groupId>javax.xml.bind</groupId>
-		    <artifactId>jaxb-api</artifactId>
-		    <version>2.2.11</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.sun.xml.bind</groupId>
-		    <artifactId>jaxb-core</artifactId>
-		    <version>2.2.11</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.sun.xml.bind</groupId>
-		    <artifactId>jaxb-impl</artifactId>
-		    <version>2.2.11</version>
-		</dependency>
-		<dependency>
-		    <groupId>javax.activation</groupId>
-		    <artifactId>activation</artifactId>
-		    <version>1.1.1</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
