@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
+@EnableEurekaClient 	// inherits from @EnableDiscoveryClient.
 public class SmsServiceApplication implements CommandLineRunner {
 
 	@Autowired
