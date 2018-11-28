@@ -1,5 +1,3 @@
-service-config-repo/
-
 target/
 !.mvn/wrapper/maven-wrapper.jar
 .mvn/
