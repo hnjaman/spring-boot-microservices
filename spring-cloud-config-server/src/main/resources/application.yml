@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///home/sts/repo/service-config-repo
+
+server:
+  port: 8081
