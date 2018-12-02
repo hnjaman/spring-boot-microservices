@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: contact-service
+  datasource:
+    url: jdbc:mysql://localhost/user_db
+    username: cfbd
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+
+
+server:
+  port: 8555
