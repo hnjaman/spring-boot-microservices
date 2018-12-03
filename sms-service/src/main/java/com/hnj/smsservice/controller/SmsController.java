@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,9 +18,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
 @RestController
-@CrossOrigin(origins="http://localhost:4200", allowedHeaders="*")
+@CrossOrigin(origins="http://localhost:4200", allowedHeaders="*") // for angular ui
 public class SmsController {	// # running url->	http://localhost:8999/sms
+
+	@Autowired
+	private IContactServiceProxy iContactServiceProxy;
 
 	@Autowired
 	private ISmsRepository iSmsRepository;
@@ -45,6 +50,17 @@ public class SmsController {	// # running url->	http://localhost:8999/sms
 				uriVariables);
 
 		Sms response = responseEntity.getBody();
+
+		return new Sms(response.getName(), response.getContact_num(),
+				"Hello "+response.getName()+", we would like to thank you for staying with us",
+				"02/12/2018");
+	}
+
+	// using feign client
+	@GetMapping("/contacts-feign/name/{name}/sms")
+	public Sms getUserSmsFeign(@PathVariable String name){
+
+		Sms response = iContactServiceProxy.getUserSms(name);
 
 		return new Sms(response.getName(), response.getContact_num(),
 				"Hello "+response.getName()+", we would like to thank you for staying with us",
