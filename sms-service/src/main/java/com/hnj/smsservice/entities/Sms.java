@@ -1,13 +1,12 @@
 package com.hnj.smsservice.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotBlank;
 @Entity
-//@Table(name="sms")
 public class Sms implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -16,30 +15,29 @@ public class Sms implements Serializable{
 	@GeneratedValue
 	private int id;
 
-	//@NotBlank(message="Message can't be empty")
-    @Size(min=20,max=160,message="Message length must be between 20 and 160")
+	@NotNull
+	private String name;
+
+    @NotNull
+    private String contact_num;
+
+	@NotNull
+   // @Size(min=20,max=160,message="Message length must be between 20 and 160")
 	private String message;
 
-	//@NotBlank(message="Enter your Date of Birth")
+	@NotNull
 	private String date;
 
-	//private String mobile_number;
-    
-	public Sms(String message, String date) {
-		this.message = message;
-		this.date = date;
-	}
-
-//    public Sms(String message, String date, String mobile_number) {
-//        this.message = message;
-//        this.date = date;
-//        this.mobile_number = mobile_number;
-//    }
-
-	
-	public Sms() {
+    public Sms() {
 		
 	}
+
+    public Sms(@NotNull String name, @NotNull String contact_num, @NotNull String message, @NotNull String date) {
+        this.name = name;
+        this.contact_num = contact_num;
+        this.message = message;
+        this.date = date;
+    }
 
     public int getId() {
         return id;
@@ -47,6 +45,22 @@ public class Sms implements Serializable{
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContact_num() {
+        return contact_num;
+    }
+
+    public void setContact_num(String contact_num) {
+        this.contact_num = contact_num;
     }
 
     public String getMessage() {

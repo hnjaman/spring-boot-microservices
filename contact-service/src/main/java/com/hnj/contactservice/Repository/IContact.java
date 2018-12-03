@@ -10,4 +10,5 @@ public interface IContact extends JpaRepository<Contact,String> {
 //    @Query("SELECT all FROM Contact WHERE name LIKE %?1%")
 //    List<Contact> findByName(String name);
     List<Contact> findByNameContaining(String name);
+    Contact findByName(String name);
 }

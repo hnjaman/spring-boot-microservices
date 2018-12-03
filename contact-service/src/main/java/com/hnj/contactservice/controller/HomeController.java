@@ -17,13 +17,20 @@ public class HomeController {
 
     //-Dserver.port=8000 for custom port running on VM arguments instead of application.yml
 
-    @GetMapping("/contacts/name/{name}")
+    @GetMapping("/contacts/list/{name}")
     public List<Contact> getContacts(@PathVariable String name){
         //return new Contact("01789032651", "hnjaman", "Dhaka");
         //return iContact.findAll();
         List<Contact> contactList = new ArrayList<>();
         contactList=iContact.findByNameContaining(name);
         return contactList;
+    }
+
+    @GetMapping("/contacts/name/{name}")
+    public Contact getContact(@PathVariable String name){
+        //return new Contact("01789032651", "hnjaman", "Dhaka");
+        //return iContact.findAll();
+        return iContact.findByName(name);
     }
 
     @GetMapping("/contacts/all")
