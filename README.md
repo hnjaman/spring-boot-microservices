@@ -1,7 +1,6 @@
 # sping-boot-microservices
-is a microservice application with User authentication, National Id and Passport
-service, sms service and some other service are under processing like payment service, location
-service etc. 
+is a microservice application with User authentication, sms service, contact service, location service,
+National Id and Passport service and some other service are under processing like payment service etc.
 All of the services are separate application which can be operated in a single page
 Angular UI. All the services can be reused to any other application.
 
@@ -16,8 +15,27 @@ Angular UI. All the services can be reused to any other application.
 - Java 8 (recommended), 10
 - Docker
 
+## Technology
+### Service Registry and Service Discovery
+All microservice instances will register with a naming server for service registraton. When a service wants 
+to use another service, it will ask to naming server what instances are currently running. Server will check
+the instances and pass the request to the instance. This is called service discovery.
+- Eureka
+- Zookeeper
+- Consul
+
+### HTTP Request 
+Invoking other microservices via http proxy request.
+- REST Templete
+- Feign
+
+### Load Balancing
+Multiple instances of a services will be distriduted to calling services.
+- Ribbon
+
+###
+
 ## Services:
- - NID and Passport service
  
  - [User Authentication service](https://github.com/hnjaman/sping-boot-microservices/tree/master/user-authentication)
   
@@ -26,6 +44,8 @@ Angular UI. All the services can be reused to any other application.
  - [Contacts service](https://github.com/hnjaman/spring-boot-microservices/tree/master/contact-service)
   
  - [Location service](https://github.com/hnjaman/sping-boot-microservices/tree/master/location-service)
+ 
+ - NID and Passport service
  
  - Payment service (Coming)
   
@@ -51,8 +71,8 @@ mvn spring-boot:run
 # Its Eureka dashboard, where we can inspecting the registered instances later. 
 # In the microservices world, Service Registry and Discovery play role since we most likely run 
 # multiple instances of services and we need a mechanism to call other services without hardcoding
-# their hostnames or port numbers. In Cloud environments service instances may come up and go down anytime.
-# So we need some automatic service registration and discovery mechanism. 
+# their hostnames or port numbers. In Cloud environments service instances may come up and go down
+# anytime. So we need some automatic service registration and discovery mechanism. 
 # Spring Cloud provides Service Registry and Discovery features, as usual, with multiple options.
 ```
 
