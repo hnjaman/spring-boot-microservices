@@ -22,8 +22,10 @@ Angular UI. All the services can be reused to any other application.
  - [User Authentication service](https://github.com/hnjaman/sping-boot-microservices/tree/master/user-authentication)
   
  - [SMS service](https://github.com/hnjaman/sping-boot-microservices/tree/master/sms-service)
+ 
+ - [Contacts service](https://github.com/hnjaman/spring-boot-microservices/tree/master/contact-service)
   
- - [Location service](https://github.com/hnjaman/sping-boot-microservices/tree/master/location-service) (coming soon)
+ - [Location service](https://github.com/hnjaman/sping-boot-microservices/tree/master/location-service)
  
  - Payment service (Coming)
   
@@ -46,27 +48,38 @@ mvn spring-boot:run
 # Go to http://localhost:8761
 # Check "Instances currently registered with Eureka"
 # nothing will be shown because you didn't start any services
-```
-
-
-```
-# Build and run NID, Passport services  
-mvn clean install
-mvn spring-boot:run
-# Go to http://localhost:8888/nids; http://localhost:8888/passports
+# Its Eureka dashboard, where we can inspecting the registered instances later. 
+# In the microservices world, Service Registry and Discovery play role since we most likely run 
+# multiple instances of services and we need a mechanism to call other services without hardcoding their hostnames 
+# or port numbers. In Cloud environments service instances may come up and go down anytime.
+# So we need some automatic service registration and discovery mechanism. 
+# Spring Cloud provides Service Registry and Discovery features, as usual, with multiple options.
 ```
 
 ```
 # Build and run user authentication services  
 mvn spring-boot:run
-# It will start on http://localhost:8777/
+# It will start on http://localhost:8777//api/auth
+# for signup -> http://localhost:8777/api/auth/signup
 # refresh Eureka (http://localhost:8761)
 # Check again "Instances currently registered with Eureka"
 # you will see user-authentication is UP
 # if you stop this services then it will be DOWN
 
-# If Eureka server didn’t receive any notification from a service. 
-# This service is unregistered from the Eureka server automatically.
+# When Eureka server didn’t get received any notification from a service. 
+# Then the service will be unregistered from the Eureka server automatically.
+```
+
+```
+# Run Contact service
+cd contact-service
+mvn spring-boot:run
+# It will start on http://localhost:8555/
+# and insert 2 dummy contacts info in contact table with name, contact number and address
+# Get all Contacts -> http://localhost:8555/contacts/all
+# Search by name -> http://localhost:8555/contacts/name/hnjaman
+# here hnjaman is the name you searching 
+# it will send all contacts containing "hnjaman"
 ```
 
 ```
@@ -74,6 +87,8 @@ mvn spring-boot:run
 cd sms-service
 mvn spring-boot:run
 # It will start on http://localhost:8999/sms
+# To check message for "hnjaman" -> http://localhost:8999/contacts/name/hnjaman/sms
+# it will get name and contact number from contact service and generate a custom message for "hnjaman"
 # Refresh and check Eureka
 ```
 
