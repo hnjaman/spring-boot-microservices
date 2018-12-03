@@ -50,8 +50,8 @@ mvn spring-boot:run
 # nothing will be shown because you didn't start any services
 # Its Eureka dashboard, where we can inspecting the registered instances later. 
 # In the microservices world, Service Registry and Discovery play role since we most likely run 
-# multiple instances of services and we need a mechanism to call other services without hardcoding their hostnames 
-# or port numbers. In Cloud environments service instances may come up and go down anytime.
+# multiple instances of services and we need a mechanism to call other services without hardcoding
+# their hostnames or port numbers. In Cloud environments service instances may come up and go down anytime.
 # So we need some automatic service registration and discovery mechanism. 
 # Spring Cloud provides Service Registry and Discovery features, as usual, with multiple options.
 ```
@@ -89,6 +89,7 @@ mvn spring-boot:run
 # It will start on http://localhost:8999/sms
 # To check message for "hnjaman" -> http://localhost:8999/contacts/name/hnjaman/sms
 # it will get name and contact number from contact service and generate a custom message for "hnjaman"
+# using RESTTemplete.
 # Refresh and check Eureka
 ```
 
