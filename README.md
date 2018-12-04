@@ -16,24 +16,38 @@ Angular UI. All the services can be reused to any other application.
 - Docker
 
 ## Technology
+
+### API Gateway
+It itself a service for facing clients. Just like the entry point to get any service.
+Receive all the request and delegates the request to the appropriate service.
+Like a gatekeeper.
+- Zuul
+
 ### Service Registry and Service Discovery
 All microservice instances will register with a naming server for service registraton. When a service wants 
 to use another service, it will ask to naming server what instances are currently running. Server will check
 the instances and pass the request to the instance. This is called service discovery.
+The advantage is s service registry always updates itself, if one instance goes down, 
+it removes it from its registry.
 - Eureka
 - Zookeeper
 - Consul
 
-### HTTP Request 
+### Client Side Load Balancing
+Multiple instances of a services will be distriduted to calling services.
+if one microservice wants to communicate with another microservice, 
+it generally ask the service registry which returns all the instances of the 
+called microservice to the calling service. Then it is calling service headache 
+which instance it will call. This is the process of client side load balancing.
+- Ribbon
+
+### Microservices intra communication
 Invoking other microservices via http proxy request.
 - REST Templete
 - Feign
+Developers don’t have to bother about REST internal details. Encoding request and 
+Decoding reponse are happened by Feign.
 
-### Load Balancing
-Multiple instances of a services will be distriduted to calling services.
-- Ribbon
-
-###
 
 ## Services:
  
