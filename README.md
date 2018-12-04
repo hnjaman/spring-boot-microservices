@@ -45,20 +45,20 @@ which instance it will call. This is the process of client side load balancing.
 Invoking other microservices via http proxy request.
 - REST Templete
 - Feign
-Developers don’t have to bother about REST internal details. Encoding request and 
+  - Developers don’t have to bother about REST internal details. Encoding request and 
 Decoding reponse are happened by Feign.
 
 ### Distributed Tracing
 Simply the centralized log for all services to tracing complete chain of what happened 
 in a specific request. Centralized information container for all the services.
 - Spring cloud sleuth 
-Tracing request as assign an unique id to every request so that the request can be identified
+  - Tracing request as assign an unique id to every request so that the request can be identified
 inside every services.
 - RabbitMQ 
-The Advanced Message Queuing Protocol (AMQP) which put all services log in one message queue 
+  - The Advanced Message Queuing Protocol (AMQP) which put all services log in one message queue 
 and send it to tracing server like Zipkin. All services are connected with RabbitMQ.
 - Zipkin
-The server application for visualizing what happens on the specific request.
+  - The server application for visualizing what happens on the specific request.
 
 ## Services:
  
