@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties("location-service")
-public class Configuration {
+public class Configuration {    // to access cloud profile config properties
     private double latitude;
     private double longitude;
 
