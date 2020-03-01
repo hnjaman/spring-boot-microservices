@@ -7,7 +7,7 @@ import { GeoJson, FeatureCollection } from '../../map';
 @Component({
   selector: 'map-box',
   templateUrl: './map-box.component.html',
-  styleUrls: ['./map-box.component.scss']
+  styleUrls: ['./map-box.component.css']
 })
 export class MapBoxComponent implements OnInit{
 
